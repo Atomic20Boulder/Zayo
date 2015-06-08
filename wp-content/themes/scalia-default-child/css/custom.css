@@ -448,7 +448,8 @@ h6,
 .widget_meta li,
 .widget_rss li,
 .widget_archive li,
-.wpb_toggle {
+.wpb_toggle,
+.vc_toggle_title h4 {
 	font-family: 'Roboto Condensed';
 }
 
@@ -458,7 +459,8 @@ h6,
 .widget_meta li,
 .widget_rss li,
 .widget_archive li,
-.wpb_toggle {
+.wpb_toggle,
+.vc_toggle_title h4 {
 	font-weight: 300;
 }
 
@@ -468,7 +470,8 @@ h6,
 .widget_meta li,
 .widget_rss li,
 .widget_archive li,
-.wpb_toggle {
+.wpb_toggle,
+.vc_toggle_title h4 {
 	font-size: 20px;
 }
 
@@ -478,7 +481,8 @@ h6,
 .widget_meta li,
 .widget_rss li,
 .widget_archive li,
-.wpb_toggle {
+.wpb_toggle,
+.vc_toggle_title h4 {
 	line-height: 28px;
 }
 
@@ -885,6 +889,7 @@ body .sc-table-style-2 tr:nth-child(2n) td,
 .blog-style-default article.no-image .post-image .sc-dummy,
 .project_info-item-style-1 .project_info-item .icon,
 .wpb_toggle,
+.vc_toggle_title,
 .page-title-style-2,
 .top-area-socials .socials-item a,
 .pricing-table-style-2 .highlighted .pricing-title-wrapper .pricing-title,
@@ -920,7 +925,6 @@ body .sc-table-style-2 tr:nth-child(2n) td,
 .portfolio.hover-title .portfolio-item .caption .info a,
 .portfolio.hover-default .portfolio-item .image .overlay .links .caption .info a,
 .portfolio.hover-default .portfolio-item .image .overlay .links .caption .info span.sep,
-.sc-image a:after,
 .sc-gallery-hover-default .sc-gallery-preview-carousel-wrap:hover .sc-prev:after,
 .sc-gallery-hover-default .sc-gallery-preview-carousel-wrap:hover .sc-next:after,
 .sc-gallery-hover-default .sc-gallery-preview-carousel-wrap .sc-gallery-item a:after,
@@ -1040,6 +1044,7 @@ ul.woocommerce-error li,
 .project_info-item-style-1 .project_info-item  .title,
 .post-author-info .name,
 .wpb_toggle,
+.vc_toggle_title h4,
 .account-tittle,
 .blog-style-timeline .post-time span,
 .blog.blog-style-masonry article .description .tags a {
@@ -1190,6 +1195,7 @@ form.cart .quantity .qty,
 .sc-tour-style-2 .resp-accordion,
 .sc-tabs-style-1 .resp-accordion,
 .wpb_toggle_content + .wpb_toggle,
+.vc_toggle + .vc_toggle .vc_toggle_title,
 .widget .product-dummy-wrapper,
 .widget_layered_nav ul li,
 .widget_nav_menu ul.menu,
@@ -1584,6 +1590,7 @@ form.cart .quantity .minus,
 .block-navigation-prev a:before,
 .block-navigation-next a:after,
 h4.wpb_toggle_title_active:after,
+.vc_toggle_active .vc_toggle_title:after,
 .resp-accordion.resp-tab-active:after,
 .portfolio.hover-zooming-blur .portfolio-item .image .overlay .links .caption .info a,
 .portfolio.hover-zooming-blur .portfolio-item .image .overlay .links .caption .info span.sep,
@@ -2159,6 +2166,7 @@ div.blog article a.default:before,
 .project_info-item-style-2 .icon,
 .sc_accordion_header .ui-accordion-header-icon:before,
 .wpb_toggle:after,
+.vc_toggle_title:after,
 .widget_layered_nav ul li a:before,
 .widget .sc-contacts-address:before,
 .widget .sc-contacts-phone:before,
@@ -2210,6 +2218,8 @@ div.blog article a.default:before,
 .sc-gallery-hover-default .sc-gallery-preview-carousel-wrap:hover .sc-next:after,
 .sc-gallery-hover-default .sc-gallery-preview-carousel-wrap .sc-gallery-item a:after,
 .sc-gallery-hover-default .sc-gallery-preview-carousel-wrap .sc-gallery-item .sc-gallery-caption,
+.sc-image a:after,
+.gallery-item .overlay-content a.icon:before,
 .portfolio-item .image .overlay .links a.icon:before,
 .portfolio.hover-title .portfolio-item .caption .title,
 .portfolio.hover-title.columns-4 .portfolio-item .caption .title,
@@ -2346,12 +2356,12 @@ textarea,
 
 
 #colophon {
-	background-image: url('http://scalia-wptheme.loc/wp-content/themes/scalia/images/footer-bg.png');
+	background-image: url('http://localhost:8888/wp-content/themes/scalia/images/footer-bg.png');
 }
 
 .preloader:after,
 .loading:after {
-	background-image: url('http://scalia-wptheme.loc/wp-content/themes/scalia/images/preloader-2.gif');
+	background-image: url('http://localhost:8888/wp-content/themes/scalia/images/preloader-2.gif');
 }
 
 body.home .slideshow-preloader {

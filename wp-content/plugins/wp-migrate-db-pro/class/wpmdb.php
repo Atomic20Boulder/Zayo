@@ -51,16 +51,7 @@ class WPMDB extends WPMDB_Base {
 		add_action( 'wp_ajax_wpmdb_update_max_request_size', array( $this, 'ajax_update_max_request_size' ) );
 		add_action( 'wp_ajax_wpmdb_cancel_migration', array( $this, 'ajax_cancel_migration' ) );
 
-		$absolute_path = rtrim( ABSPATH, '\\/' );
-		$site_url      = rtrim( site_url( '', 'http' ), '\\/' );
-		$home_url      = rtrim( home_url( '', 'http' ), '\\/' );
-		if ( $site_url != $home_url ) {
-			$difference = str_replace( $home_url, '', $site_url );
-			if ( strpos( $absolute_path, $difference ) !== false ) {
-				$absolute_path = rtrim( substr( $absolute_path, 0, - strlen( $difference ) ), '\\/' );
-			}
-		}
-		$this->absolute_root_file_path = $absolute_path;
+		$this->absolute_root_file_path = $this->get_absolute_root_file_path();
 
 		$this->accepted_fields = array(
 			'action',
@@ -1056,12 +1047,17 @@ class WPMDB extends WPMDB_Base {
 		$this->set_post_data();
 
 		if ( ! isset( $this->domain_replace ) ) {
-			if ( ! empty( $this->post_data['domain_current_site'] ) ) {
+			if ( is_multisite() && ! empty( $this->post_data['domain_current_site'] ) ) {
 				$this->domain_replace = $this->post_data['domain_current_site'];
-			} elseif ( ! empty ( $this->form_data['replace_new'][1] ) ) { // occurs when performing an export migration
+			} elseif ( is_multisite() && ! empty( $this->form_data['replace_new'][1] ) ) {
 				$url = $this->form_data['replace_new'][1];
-				$url = $this->parse_url( $url );
-				$this->domain_replace = $url['host'];
+				$url = parse_url( $url );
+				
+				if ( isset( $url['host'] ) ) {	
+					$this->domain_replace = $url['host'];
+				} else {
+					$this->domain_replace = false;
+				}
 			} else {
 				$this->domain_replace = false;
 			}
@@ -1347,7 +1343,7 @@ class WPMDB extends WPMDB_Base {
 			$order_by = '';
 			// We need ORDER BY here because with LIMIT, sometimes it will return
 			// the same results from the previous query and we'll have duplicate insert statements
-			if ( 'backup' != $this->post_data['stage'] && isset( $this->form_data['exclude_spam'] ) ) {
+			if ( 'backup' != $this->post_data['stage'] && false === empty( $this->form_data['exclude_spam'] ) ) {
 				if ( $this->table_is( 'comments', $table ) ) {
 					$where .= ' AND comment_approved != "spam"';
 				} elseif ( $this->table_is( 'commentmeta', $table ) ) {
@@ -1458,7 +1454,15 @@ class WPMDB extends WPMDB_Base {
 			if ( $table_data ) {
 				$to_search   = isset( $this->find_replace_pairs['replace_old'] ) ? $this->find_replace_pairs['replace_old'] : '';
 				$to_replace  = isset( $this->find_replace_pairs['replace_new'] ) ? $this->find_replace_pairs['replace_new'] : '';
-				$replacer = new WPMDB_Replace( $table, $to_search, $to_replace, $this );
+				$replacer = new WPMDB_Replace( array(
+					'table'       => $table,
+					'search'      => $to_search,
+					'replace'     => $to_replace,
+					'intent'      => $this->post_data['intent'],
+					'base_domain' => $this->get_domain_replace(),
+					'site_domain' => $this->get_domain_current_site(),
+					'wpmdb'       => $this,
+				) );
 
 				foreach ( $table_data as $row ) {
 					$replacer->set_row( $row );
@@ -1516,7 +1520,7 @@ class WPMDB extends WPMDB_Base {
 							$value = preg_replace( array_keys( $domain_replaces ), array_values( $domain_replaces ), $value );
 						}
 
-						if ( 'guid' != $key || ( isset( $this->form_data['replace_guids'] ) && $this->table_is( 'posts', $table ) ) ) {
+						if ( 'guid' != $key || ( false === empty( $this->form_data['replace_guids'] ) && $this->table_is( 'posts', $table ) ) ) {
 							if ( $this->post_data['stage'] != 'backup' ) {
 								$value = $replacer->recursive_unserialize_replace( $value );
 							}
@@ -2385,6 +2389,12 @@ class WPMDB extends WPMDB_Base {
 			// Following regex matches any PRIMARY KEY or KEY statement on a table definition that has a COMMENT statement attached.
 			// The regex is then reset (\K) to return just the COMMENT, its string and any leading whitespace for replacing with nothing.
 			$create_table = preg_replace( '/(?-i)KEY\s.*`.*`\).*\K\sCOMMENT\s\'.*\'/', '', $create_table );
+
+			// Replace utf8mb4 introduced in MySQL 5.5.3 with utf8. As of WordPress 4.2 utf8mb4 is used by default on supported MySQL versions
+			// but causes migrations to fail when the remote site uses MySQL < 5.5.3.
+			$create_table = preg_replace( '/(COLLATE\s)utf8mb4/', '$1utf8', $create_table ); // Column collation
+			$create_table = preg_replace( '/(COLLATE=)utf8mb4/', '$1utf8', $create_table ); // Table collation
+			$create_table = preg_replace( '/(CHARSET\s?=\s?)utf8mb4/', '$1utf8', $create_table ); // Table charset
 		}
 
 		return $create_table;
