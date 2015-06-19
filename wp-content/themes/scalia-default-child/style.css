@@ -164,3 +164,59 @@ License URI: license.txt
 	font-size: 16px;
 	line-height: 16px;
 }
+/***** Footer and Footer Widget Styling *****/
+
+#footer-social { 
+    margin-left: -100px;
+}
+
+.social-footer ul li {
+    display: inline;
+}
+
+#footer {
+    
+}
+.container-footer {
+    background-color: #1A1A1A;
+    padding: 0px;
+    position: relative;
+    margin: -20px;
+   
+}
+
+.container-footer ul li { 
+    display: inline;
+    font-size-adjust: .25;
+    right: 200px;
+}
+
+.container-footer li {
+    border-right: 1px solid white;
+    padding: .01em .5em 0 .5em;
+    color: #ffffff;
+}
+
+.container-footer li:first-child {
+    border-right: none;
+}
+
+.container-footer li:last-child {
+    border-right: none;
+}
+
+#text-5 {
+    float: right;
+    margin-top: -180px;
+}
+
+input[type="email"] {
+max-height: 54px;
+}
+
+input[type="submit"] {
+float: right;
+position: relative;
+bottom: 94px;
+}
+

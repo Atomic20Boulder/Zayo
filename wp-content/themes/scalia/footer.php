@@ -20,9 +20,10 @@
 					<?php endif; ?>
 				</div>
 
-				<div class="col-md-4 col-xs-12">
+				<div class="col-md-8 col-xs-12">
+
 					<?php
-						$socials_icons = array('twitter' => scalia_get_option('twitter_active'), 'facebook' => scalia_get_option('facebook_active'), 'linkedin' => scalia_get_option('linkedin_active'), 'googleplus' => scalia_get_option('googleplus_active'), 'stumbleupon' => scalia_get_option('stumbleupon_active'), 'rss' => scalia_get_option('rss_active'));
+						$socials_icons = array('twitter' => scalia_get_option('twitter_active'), 'facebook' => scalia_get_option('facebook_active'), 'linkedin' => scalia_get_option('linkedin_active'));
 						if(in_array(1, $socials_icons)) : ?>
 						<div id="footer-socials" class="socials">
 								<?php foreach($socials_icons as $name => $active) : ?>
@@ -31,9 +32,18 @@
 									<?php endif; ?>
 								<?php endforeach; ?>
 								<?php do_action('scalia_footer_socials'); ?>
+
 						</div><!-- #footer-socials -->
 					<?php endif; ?>
+
 				</div>
+        <div class="social-footer">
+            <ul>
+                <li><a href="http://zayo.atomic20.com" >Home</a></li>
+                <li ><a href="http://zayo.atomic20.com/company/Disclaimer/" >Disclaimer</a></li>
+                <li ><a href="http://zayo.atomic20.com/company/Terms-of-Use" >Terms of Use</a></li>                                    
+            </ul>
+        </div>
 			</div></div>
 
 		</footer><!-- #footer-nav -->
@@ -45,6 +55,17 @@
 				<div class="row"><div class="col-md-4 col-xs-12"><div class="footer-site-info"><?php echo do_shortcode(nl2br(strip_tags(stripslashes(scalia_get_option('footer_html'))))); ?></div></div></div>
 			</div>
 		</footer><!-- #colophon -->
+                <div id="footer">
+		</div>
+	<div class="container-footer">
+            <ul>
+	        <li>2015 &copy; Copyrights Zayo Group, LLC. All Rights Reserved</li>
+                <li><a href="http://zayo.atomic20.com/company/contact-us/" >Contact </a></li>
+                <li><a href="http://zayo.atomic20.com/company/legal/" >Legal </a></li>
+                <li ><a href="http://zayo.atomic20.com/company/sitemap/" >SiteMap </a></li>
+                <li ><a href="http://zayo.atomic20.com/company/store" >Store </a></li>                                    
+            </ul>
+        </div>
 		<?php endif; ?>
 		<?php endif; ?>
 
