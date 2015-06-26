@@ -59,11 +59,13 @@
 		</div>
 	<div class="container-footer">
             <ul>
-	        <li>2015 &copy; Copyrights Zayo Group, LLC. All Rights Reserved</li>
-                <li><a href="http://zayo.atomic20.com/company/contact-us/" >Contact </a></li>
-                <li><a href="http://zayo.atomic20.com/company/legal/" >Legal </a></li>
-                <li ><a href="http://zayo.atomic20.com/company/sitemap/" >SiteMap </a></li>
-                <li ><a href="http://zayo.atomic20.com/company/store" >Store </a></li>                                    
+     			    <li>2015 &copy; Copyrights Zayo Group, LLC. All Rights Reserved</li>
+              <li><a href="http://zayo.atomic20.com/company/contact-us/" >Contact </a></li>
+              <li><a href="http://zayo.atomic20.com/company/legal/" >Legal </a></li>
+              <li><a href="http://zayo.atomic20.com/company/sitemap/" >SiteMap </a></li>
+              <li><a href="http://zayo.atomic20.com/company/store" >Store </a></li>
+              <li><a class="link" name="questions" onclick="startChat()" style="cursor: pointer;">Ask an Expert</a></li> 
+
             </ul>
         </div>
 		<?php endif; ?>
@@ -72,5 +74,18 @@
 	</div><!-- #page -->
 
 	<?php wp_footer(); ?>
+	<script type="text/javascript" src="https://c.la2w1.salesforceliveagent.com/content/g/js/29.0/deployment.js" data-rocketoptimized="true"></script>
+	<script type="text/javascript">
+	function startChat(){
+	        liveagent.startChat('57360000000PBcq');
+	    }
+	    liveagent.init('https://d.la2w1.salesforceliveagent.com/chat', '57260000000PBLR', '00D6000000079Qk');
+
+	if (!window._laq) { window._laq = []; }
+	window._laq.push(function(){liveagent.showWhenOnline('57360000000PBcq', document.getElementById('Online'));
+	liveagent.showWhenOffline('57360000000PBcq', document.getElementById('Offline'));
+	});
+	</script>
 </body>
+
 </html>
