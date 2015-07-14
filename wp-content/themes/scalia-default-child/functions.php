@@ -3,6 +3,7 @@
 add_action('wp_enqueue_scripts', 'enqueue_parent_theme_style');
 function enqueue_parent_theme_style() {
 	wp_enqueue_style('parent-style', get_template_directory_uri().'/style.css', array('scalia-icons', 'scalia-reset', 'scalia-grid'));
+	wp_enqueue_script( 'tranzact', get_stylesheet_directory_uri() . '/js/tranzact.js', array(), null, true );
 
 }
 function register_header_menu() {
@@ -39,7 +40,7 @@ class Tranzact_Widget extends WP_Widget {
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
 		}
-		echo __( '<div><div class="drawer"><span><</span></div><h4>Tranzact<span>&reg;</span></h4><p>by zayo</p></div>', 'text_domain' );
+		echo __( '<div><div class="drawer"><h6>Tranzact ></h6><p>customer platform</p></div><iframe frameborder="0" height="900px" scrolling="no" src="https://zayo.force.com/tranzact/apex/TranzactLoginNew" width="104%"></iframe></div>', 'text_domain' );
 		echo $args['after_widget'];
 	}
 
@@ -325,7 +326,18 @@ function services_locater($atts) {
 }
 add_shortcode('locater', 'services_locater');
 
-
+// Tranzact Panel Shortcode
+function tranzact_panel($atts) {
+	return '<div id="tranzact_panel">
+						<div class="drawer">
+							<h6>Tranzact</h6>
+							<p>customer platform</p>
+						</div>
+						<iframe frameborder="0" height="400px" scrolling="no" src="https://zayo.force.com/tranzact/apex/TranzactLoginNew" width="100%"></iframe>
+					</div>
+	';
+}
+add_shortcode('tranzact', 'tranzact_panel');
 
 
 

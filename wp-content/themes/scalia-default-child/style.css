@@ -202,6 +202,61 @@ License URI: license.txt
  	background-color: transparent !important;
 
 }
+/***** Tranzact Panel ****/
+#tranzact_panel {
+	position: absolute;
+	top: 0;
+	right: -430px;
+	background-color: orange;
+	width: 430px;
+	transition: right ease .2s;
+	z-index: 1;
+}
+#tranzact_panel.open {
+	right: 0px;
+}
+#tranzact_panel .drawer h6, #tranzact_panel .drawer p {
+	margin: 0;
+	padding-left: 60px;
+}
+#tranzact_panel .drawer h6 {
+	font-size: 24px;
+	font-weight: bold;
+	color: #ffffff;
+	letter-spacing: 1px;
+}
+#tranzact_panel .drawer p {
+	font-size: 13px;
+	line-height: 13px;
+
+}
+#tranzact_panel .drawer {
+	position: absolute;
+  padding: 5px;
+  padding-right: 40px;
+  left: -203px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all ease .2s;
+  background: rgb(241,92,34); /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  rgba(241,92,34,1) 0%, rgba(245,130,32,1) 35%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(241,92,34,1)), color-stop(25%,rgba(245,130,32,1)), color-stop(25%,rgba(255,255,255,1)), color-stop(25%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg,  rgba(241,92,34,1) 0%,rgba(245,130,32,1) 35%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg,  rgba(241,92,34,1) 0%,rgba(245,130,32,1) 35%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg,  rgba(241,92,34,1) 0%,rgba(245,130,32,1) 35%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 100%); /* IE10+ */
+  background: linear-gradient(45deg, rgba(255,255,255,0) 25%,rgba(245,130,32,1) 25%,rgba(241,92,34,1) 70%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f15c22', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+#tranzact_panel .drawer:after {
+	content: '>';
+	position: absolute;
+	right: 7px;
+	top: 0;
+	padding-top: 12px;
+	font-size: 50px;
+	font-weight: 100;
+	
+}
 /***** Footer and Footer Widget Styling *****/
 
 #footer-social { 
