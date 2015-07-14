@@ -307,8 +307,26 @@ class Pardot_Form extends WP_Widget {
 
 } // class Tranzact_Widget
 
-// register Expert_Widget widget
+// register Pardot_Form widget
 function register_pardot_form() {
     register_widget( 'Pardot_Form' );
 }
 add_action( 'widgets_init', 'register_pardot_form' );
+// Locater Shortcode
+function services_locater($atts) {
+	return '<section id="find-services">
+						<h3>Locate Nearby Services</h3>
+						<form>
+							<input type="text" name="location">
+							<input type="submit">
+						</form>
+					</section>	
+	';
+}
+add_shortcode('locater', 'services_locater');
+
+
+
+
+
+?>
