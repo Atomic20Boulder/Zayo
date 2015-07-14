@@ -15,7 +15,7 @@ License URI: license.txt
 
 .top-area-items {
 	float: right;
-	width: 55%;
+	width: 60%;
 }
 #secondary-menu,
 #secondary-menu + ul {
@@ -205,12 +205,12 @@ License URI: license.txt
 /***** Tranzact Panel ****/
 #tranzact_panel {
 	position: absolute;
-	top: 0;
+	top: -660px;
 	right: -430px;
 	background-color: orange;
 	width: 430px;
 	transition: right ease .2s;
-	z-index: 1;
+	z-index: 2;
 }
 #tranzact_panel.open {
 	right: 0px;
