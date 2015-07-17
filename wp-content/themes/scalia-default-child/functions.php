@@ -77,7 +77,7 @@ class Tranzact_Widget extends WP_Widget {
 
 } // class Tranzact_Widget
 
-// register Expert_Widget widget
+// register tranzact_Widget widget
 function register_tranzact_widget() {
     register_widget( 'Tranzact_Widget' );
 }
@@ -338,7 +338,5 @@ function tranzact_panel($atts) {
 	';
 }
 add_shortcode('tranzact', 'tranzact_panel');
-
-
 
 ?>
