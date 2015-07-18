@@ -315,13 +315,13 @@ function register_pardot_form() {
 add_action( 'widgets_init', 'register_pardot_form' );
 // Locater Shortcode
 function services_locater($atts) {
-	return '<section id="find-services">
-						<h3>Locate Nearby Services</h3>
+	return '<div id="find-services" class="clearfix">
+						<h3>Explore Zayo&rsquo;s Fiber Network</h3>
 						<form>
-							<input type="text" name="location">
-							<input type="submit">
+							<input type="text" placeholder="YOUR ADDRESS" name="location">
+							<input class="btn green right" type="submit" value="call to action">
 						</form>
-					</section>	
+					</div>	
 	';
 }
 add_shortcode('locater', 'services_locater');

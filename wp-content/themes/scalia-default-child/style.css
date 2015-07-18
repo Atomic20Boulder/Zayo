@@ -13,6 +13,7 @@ License URI: license.txt
 /***** Universal Styles ****/
 .btn {
 	padding: .5em 2em;
+	font-size: 18px;
 	color: #ffffff;
 	position: relative;
 	text-transform: uppercase;
@@ -37,6 +38,15 @@ License URI: license.txt
 	left: 1px;
 	top: -5px;
 }
+.btn.cta, .btn.cta a  {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: transparent !important;
+}
+
 /***** Header Nav ****/
 
 .top-area-items {
@@ -283,6 +293,83 @@ License URI: license.txt
 	font-weight: 100;
 	
 }
+/***** Nearby Services *****/
+#find-services {
+	padding: 0 5%;
+}
+#find-services h3 {
+	color: #ffffff;
+	font-size: 57px;
+	line-height: normal;
+	font-weight: lighter;
+
+}
+#find-services input[type='text'] {
+	width: 50%;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 900;
+	font-style: italic;
+	border-radius: 0;
+	box-shadow: none;
+	background-color: #ffffff;
+	height: 41px;
+	float: left;
+}
+#find-services input[type='text']:focus {
+	outline: none;
+	font-style: normal;
+}
+#find-services input[type='submit'] {
+	position: static;
+	float: right;
+	margin: 0;
+	border-radius: 0;
+	font-size: 18px;
+	line-height: normal;
+}
+/***** HomePage *****/
+.cta h2, .cta p {
+	margin: 0;
+}
+.cta header h2 {
+	font-size: 40px;
+	color: #ffffff;
+	line-height: 30px;
+}
+.cta p {
+	font-size: 11px;
+	font-weight: 700;
+	color: #ffffff;
+	line-height: 16px;
+}
+.services.cta {
+	background: url('./img/zayo-homepage-services.png') center no-repeat;
+	background-size: cover;
+	height: 150px;
+}
+.tranzact.cta {
+	background: url('./img/zayo-homepage-tranzact.png') center no-repeat;
+	background-size: cover;
+	height: 150px;
+}
+.careers.cta {
+	background: url('./img/zayo-homepage-careers.png') center no-repeat;
+	background-size: cover;
+	height: 150px;
+}
+.live-chat.cta {
+	background: url('./img/zayo-homepage-chat.png') center no-repeat;
+	background-size: cover;
+	height: 150px;
+}
+.vc_cta3-container  {
+	transition: all ease .2s;
+}
+.vc_cta3-container:hover  {
+	transform: scale(1.1,1.1);
+}
+
 /***** Footer and Footer Widget Styling *****/
 
 #footer-social { 
