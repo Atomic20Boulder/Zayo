@@ -47,6 +47,11 @@ License URI: license.txt
 	background-color: transparent !important;
 }
 
+/***** Nav Override *****/
+#primary-menu.no-responsive > li.menu-item-current > a, #primary-menu.no-responsive > li.menu-item-active > a {
+	background-color: transparent;
+}
+
 /***** Header Nav ****/
 
 .top-area-items {
@@ -330,6 +335,9 @@ License URI: license.txt
 	line-height: normal;
 }
 /***** HomePage *****/
+div.cta {
+	padding: 10px;
+}
 .cta h2, .cta p {
 	margin: 0;
 }
@@ -343,6 +351,9 @@ License URI: license.txt
 	font-weight: 700;
 	color: #ffffff;
 	line-height: 16px;
+}
+.cta img {
+	margin: 0px;
 }
 .services.cta {
 	background: url('./img/zayo-homepage-services.png') center no-repeat;
