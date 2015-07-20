@@ -363,6 +363,17 @@ License URI: license.txt
 	background-size: cover;
 	height: 150px;
 }
+.live-chat.cta p {
+	text-transform: uppercase;
+	font-style: italic;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.live-chat.cta p:nth-child(3) {
+	bottom: 0;
+	right: 0;
+}
 .vc_cta3-container  {
 	transition: all ease .2s;
 }
